@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = 'YashoidLibraries'
+    bintrayName = 'sliderlayout'
+
+    publishedGroupId = 'com.yashoid'
+    libraryName = 'SliderLayout'
+    artifact = 'sliderlayout'
+
+    libraryDescription = 'SliderLayout is a component similar to Android\'s DrawerLayout with much more flexibility.'
+
+    siteUrl = 'https://github.com/yasharpm/SliderLayout'
+    gitUrl = 'https://github.com/yasharpm/SliderLayout.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'yasharpm'
+    developerName = 'Yashar PourMohammad'
+    developerEmail = 'yasharpm@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 21
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
