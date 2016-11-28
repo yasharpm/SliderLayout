@@ -1,4 +1,4 @@
-package yashoid.view;
+package com.yashoid.sliderlayout;
 
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
