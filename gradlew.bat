@@ -46,6 +46,12 @@ echo location of your Java installation.
 goto fail
 
 :init
+
+
+@rem set JAVA_HOME=C:/Program Files/Android/Android Studio/jre
+@rem set JAVA_EXE=%JAVA_HOME%/bin/java.exe
+
+
 @rem Get command-line arguments, handling Windowz variants
 
 if not "%OS%" == "Windows_NT" goto win9xME_args
