@@ -459,6 +459,8 @@ public class SliderLayout extends ViewGroup {
 				return true;
 			}
 			
+			requestDisallowInterceptTouchEvent(true);
+			
 			mState = STATE_SCROLLING;
 			
 			mSlideAmount += -distanceX;
@@ -551,7 +553,7 @@ public class SliderLayout extends ViewGroup {
 			}
 			else {
 				return false;
-				}
+			}
 		}
 		
 		@Override
@@ -575,6 +577,8 @@ public class SliderLayout extends ViewGroup {
 	
 	private void onUp(MotionEvent e) {
 		mIsTouchDown = false;
+		
+		requestDisallowInterceptTouchEvent(false);
 		
 		switch (mState) {
 		case STATE_IDLE:
@@ -773,6 +777,8 @@ public class SliderLayout extends ViewGroup {
 	private void closeImmediate() {
 		mState = STATE_IDLE;
 		
+		requestDisallowInterceptTouchEvent(false);
+		
 		mSlideAmount = 0;
 		
 		if (mSliderListener!=null) {
@@ -788,6 +794,8 @@ public class SliderLayout extends ViewGroup {
 	
 	private void flyClose() {
 		mState = STATE_FLYING;
+		
+		requestDisallowInterceptTouchEvent(false);
 		
 		if (mSliderListener!=null) {
 			mSliderListener.onStateChanged(STATE_FLYING, mSlidingSlider);
@@ -853,7 +861,9 @@ public class SliderLayout extends ViewGroup {
 	}
 	
 	private void flyOpen() {
-		mState = STATE_FLYING;
+		mState = STATE_FLYING
+		
+		requestDisallowInterceptTouchEvent(false);
 		
 		if (mSliderListener!=null) {
 			mSliderListener.onStateChanged(STATE_FLYING, mSlidingSlider);
