@@ -861,7 +861,7 @@ public class SliderLayout extends ViewGroup {
 	}
 	
 	private void flyOpen() {
-		mState = STATE_FLYING
+		mState = STATE_FLYING;
 		
 		requestDisallowInterceptTouchEvent(false);
 		
