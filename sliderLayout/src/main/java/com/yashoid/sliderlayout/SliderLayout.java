@@ -216,13 +216,11 @@ public class SliderLayout extends ViewGroup {
 			}
 			
 			if (mLeftSlider!=null) {
-				int leftSliderWidth = mLeftSlider.getLayoutParams().width;
-				mLeftSlider.measure(MeasureSpec.makeMeasureSpec(leftSliderWidth, MeasureSpec.EXACTLY), heightSpec);
+				measureSlider(mLeftSlider, widthSpec, heightSpec, widthSize, heightSize);
 			}
 			
 			if (mRightSlider!=null) {
-				int rightSliderWidth = mRightSlider.getLayoutParams().width;
-				mRightSlider.measure(MeasureSpec.makeMeasureSpec(rightSliderWidth, MeasureSpec.EXACTLY), heightSpec);
+				measureSlider(mRightSlider, widthSpec, heightSpec, widthSize, heightSize);
 			}
 		}
 		
@@ -297,13 +295,11 @@ public class SliderLayout extends ViewGroup {
 		}
 		
 		if (mLeftSlider!=null) {
-			int leftSliderWidth = mLeftSlider.getLayoutParams().width;
-			mLeftSlider.layout((int) mSlideAmount - leftSliderWidth, 0, (int) mSlideAmount, mHeight);
+			mLeftSlider.layout((int) mSlideAmount - mLeftSlider.getMeasuredWidth(), 0, (int) mSlideAmount, mHeight);
 		}
 		
 		if (mRightSlider!=null) {
-			int rightSliderWidth = mRightSlider.getLayoutParams().width;
-			mRightSlider.layout((int) mSlideAmount + mWidth, 0, (int) mSlideAmount + mWidth + rightSliderWidth, mHeight);
+			mRightSlider.layout((int) mSlideAmount + mWidth, 0, (int) mSlideAmount + mWidth + mRightSlider.getMeasuredWidth(), mHeight);
 		}
 	}
 	

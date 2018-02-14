@@ -28,10 +28,18 @@
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="right"
-            android:background="#0ad3ba"></FrameLayout>
+            android:background="#0ad3ba">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Salam, man yashar hastam."/>
+
+        </FrameLayout>
 
     </com.yashoid.sliderlayout.SliderLayout>
 
