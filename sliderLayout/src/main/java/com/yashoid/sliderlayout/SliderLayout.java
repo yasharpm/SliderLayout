@@ -176,8 +176,7 @@ public class SliderLayout extends ViewGroup {
 		int leftSliderMeasuredHeight = 0;
 		
 		if (mLeftSlider!=null) {
-			int leftSliderWidth = mLeftSlider.getLayoutParams().width;
-			mLeftSlider.measure(MeasureSpec.makeMeasureSpec(leftSliderWidth, MeasureSpec.EXACTLY), heightSpec);
+			measureSlider(mLeftSlider, widthSpec, heightSpec, widthSize, heightSize);
 			
 			leftSliderMeasuredWidth = mLeftSlider.getMeasuredWidth();
 			leftSliderMeasuredHeight = mLeftSlider.getMeasuredHeight();
@@ -188,8 +187,7 @@ public class SliderLayout extends ViewGroup {
 		int rightSliderMeasuredHeight = 0;
 		
 		if (mRightSlider!=null) {
-			int rightSliderWidth = mRightSlider.getLayoutParams().width;
-			mRightSlider.measure(MeasureSpec.makeMeasureSpec(rightSliderWidth, MeasureSpec.EXACTLY), heightSpec);
+			measureSlider(mRightSlider, widthSpec, heightSpec, widthSize, heightSize);
 			
 			rightSliderMeasuredWidth = mRightSlider.getMeasuredWidth();
 			rightSliderMeasuredHeight = mRightSlider.getMeasuredHeight();
@@ -229,6 +227,26 @@ public class SliderLayout extends ViewGroup {
 		}
 		
 		setMeasuredDimension(widthSize, heightSize);
+	}
+
+	private void measureSlider(View slider, int widthSpec, int heightSpec, int widthSize, int heightSize) {
+		LayoutParams params = (LayoutParams) slider.getLayoutParams();
+
+		if (params.width == LayoutParams.WRAP_CONTENT) {
+			widthSpec = MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.UNSPECIFIED);
+		}
+		else if (params.width != LayoutParams.MATCH_PARENT) {
+			widthSpec = MeasureSpec.makeMeasureSpec(params.width, MeasureSpec.EXACTLY);
+		}
+
+		if (params.height == LayoutParams.WRAP_CONTENT) {
+			heightSpec = MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.UNSPECIFIED);
+		}
+		else if (params.height != LayoutParams.MATCH_PARENT) {
+			heightSpec = MeasureSpec.makeMeasureSpec(params.height, MeasureSpec.EXACTLY);
+		}
+
+		slider.measure(widthSpec, heightSpec);
 	}
 
 	@Override
